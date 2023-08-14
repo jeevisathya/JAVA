@@ -1,0 +1,86 @@
+Reverse of array:
+i/p:
+1 2 1
+1 2 1 -> Reverse of array
+
+o/p:
+Yes
+
+i/p:
+1 4 5
+5 4 1
+
+o/p:
+no
+
+Reverse of digit:
+
+i/p: 121
+     121 (reverse)
+o/p: yes
+
+i/p: 12345
+     54321 (reverse)
+o/p: no
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package TestProject;
+
+import java.util.Scanner;
+
+public class Testdata {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("Please enter the value of n: ");
+		Scanner sc= new Scanner(System.in);
+		int count=0;
+		int num = sc.nextInt();
+		
+		int arr[] = new int[10];
+		int arr1[] = new int[20];
+				
+		System.out.println("Please enter the value of an array i");
+		for(int i=0; i<num; i++){
+
+		    arr[i] = sc.nextInt();
+		}
+		System.out.println("Arraysof I: ");
+		for(int i=0; i<num; i++){
+		   System.out.println(arr[i]);
+		}
+		/**
+		System.out.println("Please enter the value of an array j");
+		for(int j=1; j<=num; j++) {
+			arr1[j] = sc.nextInt();
+		}
+		
+		System.out.println("Reverse Arrays of I: ");
+		for(int i=num; i>=1; i--){
+			   System.out.println(arr1[i]);
+			}
+			**/
+			
+		
+	for (int i=0; i<num; i++) {
+		
+		if(arr[i] == arr[num-(i+1)]) {
+			count++;
+		}
+	}
+		/**
+		for(int j=1; j<=num; j++) {
+			if(arr[i]==arr1[j]) {
+				count++;
+			}
+		}
+		**/
+
+	System.out.println(count);
+	if(count == num)
+		 System.out.println("yes");	
+	else
+		System.out.println("no");
+	}
+}
