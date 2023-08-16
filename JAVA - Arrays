@@ -136,6 +136,12 @@ a = a+b;
 b = a-b;
 a = a-b;
 
+Swamping of 3 values without temp value:
+a = a+b+c;
+b = a - (b+c);
+c = a - (b+c);
+a = a - (b+c);	
+
 package TestProject;
 import java.util.Scanner;
 public class Swapingvalues {
