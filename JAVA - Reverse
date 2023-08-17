@@ -84,3 +84,52 @@ public class Testdata {
 		System.out.println("no");
 	}
 }
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Reverse of number:
+
+i/p: 12000
+o/p:  yes (reverse of 12000 = 00021)
+
+package TestProject;
+import java.util.Scanner;
+public class Testdata {
+
+	public static void main(String[] args) {		
+		System.out.println("Please enter the value of n: ");
+		Scanner sc= new Scanner(System.in);
+		int num = sc.nextInt();
+		int count=0,dem,reverse=0;
+		String intitalValue = Integer.toString(num);
+		String finalValue = "";
+    if(num%10 != 0) {
+    System.out.println("Inside not ends with Zero");
+    while(num != 0) {
+    
+    dem = num % 10;
+    reverse = (reverse * 10) + dem;
+    num = num/10; 
+    }
+    System.out.println("Inside not ends with Zero :: "+reverse);
+    finalValue = Integer.toString(reverse);
+    }else {
+    	System.out.println("Inside ends with Zero");
+        String s=String.valueOf(num);
+		  int length = s.length(); 
+		  char[] arr = new char[length];
+		  for(int k=0; k<length; k++) 
+		  { arr[k] = s.charAt(k); } 
+		  for(int k=length-1;k>=0; k--)
+		  { System.out.print(arr[k]);
+		  finalValue = finalValue + arr[k];
+		  } 
+		System.out.println();
+                System.out.println("String reverse::: "+finalValue);
+    }
+    if(intitalValue.equals(finalValue)) 
+    	  System.out.println("Yes");
+    else
+    	System.out.println("No");
+	}
+}
+
