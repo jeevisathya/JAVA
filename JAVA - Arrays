@@ -127,7 +127,54 @@ for(int i=0; i<num; i++) {
 				   System.out.println(a2[i]);
 		}
 
+Sorting of number (Method - 2) - even/odd:
 
+Please enter the value of n:
+7
+1 2 5 8 10 11 12
+2 8 10 12 11 5 1
+
+package com.test;
+import java.util.Scanner;
+public class Iteration {
+
+	public static void main(String[] args) {
+		int [] arr = new int[10];
+		int [] a1 = new int[20];
+		int num,t,x=0,y=1;
+		System.out.println("Please enter the value of n:");
+		Scanner a= new Scanner(System.in);
+		num = a.nextInt();
+		Scanner b= new Scanner(System.in);
+		for(int i=0; i<num; i++) {
+			arr[i] = b.nextInt();
+		}
+		
+		for(int i=0; i<num; i++) {
+			for(int j=i+1; j<num; j++) {
+				if(arr[i] > arr[j]) {
+					t = arr[i]; 
+					arr[i]=arr[j];
+					arr[j]=t;
+				}
+			}
+		}
+		for (int i=0; i<num; i++) {
+			if (arr[i]%2 ==0) {
+				a1[x] = arr[i];
+				x++;
+			}else {
+				a1[num-y] = arr[i];
+			    y++;
+			}
+		}
+		for(int i=0; i<num; i++) {
+			System.out.print(a1[i]);
+		}
+	}
+
+}
+-----------------------------------------------------------------------------------------------------------------------------------------
 Swamping of 2 values without temp value:
 
 Logic:
