@@ -1,0 +1,38 @@
+Recursion
+
+i/p: 10
+o/p: 15
+
+
+package com.test;
+import java.util.Scanner;
+public class Iteration {
+
+	public static void main(String[] args) {
+	
+		int result = sum(10);
+		System.out.println(result);
+	}
+	
+		//Recursive function:
+
+		/**
+		public static int sum(int n) {
+			return n+sum1(n-1);
+		}
+		public static int sum1(int n) {
+			return n+sum2(n-1);
+		}
+		public static int sum2(int n) {
+			return n;
+		}
+		**/
+	
+	    public static int sum(int n) {
+	    	if(n>0)
+	    		return n+sum(n-1);
+	    	else
+	    		return 0;
+	    }
+	
+}
