@@ -25,5 +25,63 @@ public class Stringdatas {
 	{
 		System.out.println(str1[i]);
 	}
+// String Split
+
+  String result = "Hey!, Ninjaaawelcome, Javacode, splitstring";
+					String[] resukt1 = result.split("Hey!");
+					for(String text : resukt1)
+					{
+						System.out.println(text);
+					}
+CharAt / Concat / Replace
+
+		String s = "Jeevitha sathyanarayanan";
+		String s1 = "Sathyanarayanan";
+		for(int i=0;i<s.length();i++) {
+	           System.out.print(s.charAt(i));
+		}
+
+		System.out.println(s1.concat(s));
+		System.out.println(s);
+
+		String resultset = s.replace("sathyanarayanan", "sathya");
+		System.out.println(resultset);
+
+-------------------------------------------------------------------------------------------------------------------------------------------
+I/P: 1,2,3,8,5,9,7 (Taken input as string with comma seperation)
+O/P: 9,8,7,5,3,2,1
+
+
+import java.util.Scanner;
+public class Main
+{
+	public static void main(String[] args) {
+	    int t=0;
+			System.out.println("Please entetr the value of string");
+			Scanner sc = new Scanner(System.in);
+            String str = sc.nextLine();
+            
+            String[] s = str.split(",");
+            int [] arr = new int [s.length];
+            
+            for(int i=0; i<s.length; i++){
+                arr[i] = Integer.valueOf(s[i]);
+            }
+            for(int i=0; i<s.length; i++){
+                for(int j=i+1; j<s.length; j++){
+                    if(arr[i] < arr[j]){
+                        t = arr[i];
+                        arr[i] = arr[j];
+                        arr[j] = t;
+                    }
+                }
+            }
+        for(int i=0; i<s.length; i++){
+            System.out.print(arr[i]);
+            if(i!=s.length-1)
+                System.out.print(',');
+        }   
+	}
+}
 }
 }
