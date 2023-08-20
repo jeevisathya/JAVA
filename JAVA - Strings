@@ -33,7 +33,7 @@ public class Stringdatas {
 					{
 						System.out.println(text);
 					}
-CharAt / Concat / Replace
+CharAt / Concat / Replace / INdexOf
 
 		String s = "Jeevitha sathyanarayanan";
 		String s1 = "Sathyanarayanan";
@@ -46,7 +46,7 @@ CharAt / Concat / Replace
 
 		String resultset = s.replace("sathyanarayanan", "sathya");
 		System.out.println(resultset);
-
+                System.out.println(s.indexOf('a'));
 -------------------------------------------------------------------------------------------------------------------------------------------
 I/P: 1,2,3,8,5,9,7 (Taken input as string with comma seperation)
 O/P: 9,8,7,5,3,2,1
