@@ -80,8 +80,52 @@ public class Main
             System.out.print(arr[i]);
             if(i!=s.length-1)
                 System.out.print(',');
-        }   
+        }
 	}
 }
 }
+}
+------------------------------------------------------------------------------------------------------------------------------------------
+String Duplication 
+
+Name to check : Jeevitha
+The name is: Jeevitha
+char : e
+count : 2
+
+package TestProject;
+import java.util.Scanner;
+public class Stringprograms {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.print("Name to check :");
+		String str = sc.nextLine();
+		System.out.println("The name is:"+str);
+		String temp="";
+		int length = str.length();
+		int c,n,dumm=0;
+		
+		for(int i=0; i<length; i++) {
+			if (temp!="" && temp.contains(String.valueOf(str.charAt(i)))) {
+				continue;
+			}
+			 n=0;
+			 c=1;
+			 for(int j=i+1; j<length; j++) {
+					if(str.charAt(i) == str.charAt(j)) {
+						temp = temp + str.charAt(i);
+						System.out.println("char :"+str.charAt(i));
+					      c++;
+					      n++;
+					      dumm++;
+					}	
+			 }
+			 if(c>1 && n!=0)
+			 System.out.println("count : " + c);
+		}
+		if(dumm==0) {
+			System.out.println("There is no duplicate values in a string");
+		}
+	}
 }
