@@ -1,0 +1,40 @@
+Encapsulation
+
+package TestProject;
+class Dbconfig{
+		private String host = "localhost";   // Declaration pof varaibles
+		private String user = "root"; 
+		public String getHost() {
+			return host;          // Getter data
+		}
+		public String getuser() {
+			return user;
+		}
+		public void setHost(String host){
+			  this.host = host;     // Setting data
+		}
+		public void setuser(String user){
+			  this.user = user;
+		}
+}/**
+class b extends Dbconfig{
+	public void printHost() {
+		System.out.println(getHost());     // Extends other class
+		}
+	public void printUser() {
+		System.out.println(getuser());
+	}
+}**/
+public class Classes {
+
+	public static void main(String[] args) {
+		Dbconfig obj = new Dbconfig();
+		obj.setHost("123");                 // Calling methods after decelaration
+		obj.setuser("Jeevitha");
+		System.out.println(obj.getHost());
+		System.out.println(obj.getuser());
+		
+		//obj.printHost();
+		//obj.printUser();
+	}
+}
