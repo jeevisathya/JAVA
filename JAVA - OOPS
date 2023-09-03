@@ -41,3 +41,43 @@ public class Classes {
 		//obj.printUser();
 	}
 }
+
+Polymorphism - Method overloading
+
+o/p: Addition of int: 15
+     Addition of double: 11.770000000000001
+
+package TestProject;
+class A{
+	public void add(int a, int b) {
+		int ans = a+b;
+		System.out.println("Addition of int: " + ans);    // Same method diff functions
+	}
+	public void add(double a, double b) {
+		double ans1 = a+b;
+		System.out.println("Addition of double: " + ans1);
+	}
+}
+public class OOPS {
+	public static void main(String[] args) {
+		A obj= new A();
+		obj.add(5,10);
+		obj.add(1.55,10.22);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
