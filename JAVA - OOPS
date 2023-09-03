@@ -1,5 +1,8 @@
 Encapsulation
 
+123
+Jeevitha
+
 package TestProject;
 class Dbconfig{
 		private String host = "localhost";   // Declaration pof varaibles
