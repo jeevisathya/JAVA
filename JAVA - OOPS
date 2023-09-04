@@ -66,12 +66,24 @@ public class OOPS {
 	}
 }
 
+// Same method diff functionalities
 
-
-
-
-
-
+class A{
+public void displaymessage() {
+	System.out.println("HI welcopme");
+}
+}
+class B extends A{
+	public void displaymessage() {
+		System.out.println("HI Hello");
+	}
+}
+public class OOPS {
+	public static void main(String[] args) {
+		B obj = new B();
+		obj.displaymessage();
+	}
+}
 
 
 
