@@ -85,6 +85,27 @@ public class OOPS {
 	}
 }
 
+// Constructor
+Same method name as class name
+No return type in decelartion
+
+class Demo{
+	private String name;
+	public void Demo(String name){
+		this.name = name;
+	}
+	public String getname() {
+		return name;
+	}
+}
+	public class OOPS {
+		public static void main(String[] args) {
+			Demo obj = new Demo();
+			obj.Demo("welcome");
+			System.out.println(obj.getname());
+		     }
+}
+
 
 
 
