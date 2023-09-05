@@ -1,0 +1,49 @@
+I/P: 7
+    1 2 4 6 3 7 8
+o/P: 5
+
+package TestProject;
+
+import java.util.Scanner;
+
+public class MIssingnumbers {
+
+	public static void main(String[] args) {
+		
+		System.out.println("Please enter the value of n: ");
+		Scanner sc= new Scanner(System.in);
+		int t=0,a,b,c=0;
+		int num = sc.nextInt();
+		int arr[] = new int[10];
+		int arr1[] = new int [20];
+		System.out.println("Arraysof I: ");
+		for(int i=0; i<num; i++){
+		   arr[i] = sc.nextInt();
+		}
+	    for (int i=0; i<num; i++) {
+	    	arr1[i] = arr[i];
+	    }
+	    for(int i=0; i<num; i++) {
+	    	for(int j=i+1; j<num; j++) {
+	    		if(arr[i] > arr[j]) {
+	    			t = arr1[i];
+	    			arr1[i]=arr1[j];
+	    			arr1[j]=t;
+	    		}
+	    	}
+	    }
+	    b = arr1[num-1];
+	    for(int i=1; i<=b; i++) {
+	    	c=0;
+	    	for(int j=0; j<num; j++) {
+	    		if(i == arr1[j]) {
+	    			c++;
+	    			break;
+	    		}
+	    	}
+	    	if(c==0) {
+	    		System.out.print(i);
+	    	}
+	    }
+		}
+	}
