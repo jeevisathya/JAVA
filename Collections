@@ -58,3 +58,14 @@ public class Collections {
            }
   }
 }
+
+HashMap:->(Key, value) pairs
+
+		HashMap <String,String> h = new HashMap <String,String> ();
+		h.put("HI", "Welcome");
+		h.put("HI1", "Welcome1");
+		h.put("HI2", "Welcome2");
+		h.put("Java", "Class");
+		h.forEach((k,v) -> {
+			System.out.println(k);
+		});
