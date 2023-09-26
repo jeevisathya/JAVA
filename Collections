@@ -1,0 +1,60 @@
+
+
+Collections - Framework
+
+-> ArrayLIst
+-> LinkedLIst
+-> Hashmap
+-> Hashset
+
+ArrayList:
+
+package TestProject;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+public class Collections {
+
+	public static void main(String[] args) {		
+		
+           ArrayList <String> a = new ArrayList <String> ();
+           a.add("Hii");
+           a.add("Welcome");
+           a.set(1, "Hi all");
+           a1.add("Hii");
+           a1.add("Welcome");
+           a.addAll(a);
+           System.out.println(a.get(1));
+// for each
+
+           a.forEach (result -> {
+        	   String element = i.next();
+        	   result = element;
+        	   System.out.println(result);
+        	   System.out.println(a.indexOf(element));
+           });
+
+           if(a.containsAll(a1)) {
+        	System.out.println("True");   
+           }else {
+        	   System.out.println("False"); 
+           }
+           
+           if(a.equals(a1)) {
+           	System.out.println("True");   
+              }else {
+           	   System.out.println("False"); 
+              }
+}
+
+// Iterator
+
+           Iterator<String> i = a.iterator();
+           while(i.hasNext()) {
+               String element = i.next();
+               System.out.print("Elements are: "+  element +" ");
+               System.out.println(a.indexOf(element));
+           }
+  }
+}
