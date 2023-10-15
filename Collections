@@ -69,3 +69,107 @@ HashMap:->(Key, value) pairs
 		h.forEach((k,v) -> {
 			System.out.println(k);
 		});
+Methods in collections:
+
+package TestProject;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+
+public class JavaArraylist {
+
+	public static void main(String[] args) {
+		int t=0;
+		ArrayList<Integer> res = new ArrayList<Integer>();
+		ArrayList<Integer> res1 = new ArrayList<Integer>();
+		
+		res.add(0, 30);
+		res.add(1, 80);
+		res.add(2, 85);
+		res.add(3, 10);
+		
+		Scanner sc = new Scanner(System.in);
+		
+		// System.out.println("Please enter the particular student marks:");
+		/**
+		if(res.contains(100)) {
+			System.out.println("A student secure top mark");
+		}else {
+			System.out.println("A student doesn't score top mark");
+		}
+		
+		Iterator <Integer> i = res.iterator();
+		   res.forEach (result -> {
+        	   Integer element = i.next();
+        	   result = element;
+        	   System.out.println(result);
+           });
+           **/
+		System.out.println("Foreach type 2");
+		   int c =0 ;
+		   res.forEach(result ->
+		    	   System.out.println(result));
+		   
+		   
+		   System.out.println("Foreach type 1");
+		
+		   for (Integer result : res){
+			      res1.add(c, result);
+			      c++;
+		   }
+		   System.out.println(res1);
+		   
+		   System.out.println("Smallest number in the list: \n");
+		   
+		   int test = res1.get(0);
+		   for(Integer ans : res1) {
+			   if(test > ans) {
+				   test = ans;
+			   }
+		   }
+		   System.out.println("User is going to print the smallest value:" +test );
+		   
+		   System.out.println("Printing sorted value of an arraylist:");
+		   res1.sort(Comparator.reverseOrder());
+		   res.sort(Comparator.naturalOrder());
+		   System.out.println(res1);
+		   System.out.println(res);
+		   
+		   while(true) {
+			   System.out.println("Please entee the value of n:");
+			   int  n = sc.nextInt();	
+		   switch(n) {
+		   case 1: 
+			   System.out.println(res.get(1));
+			   break;
+		   case 2:
+			   if(res.contains(10))
+				   System.out.println("yes");
+			   else
+				   System.out.println("no"); 
+			   break;
+		   case 3: 
+			   res.add(4, 98);
+			   System.out.println(res);
+			   break;
+			   
+		   case 4: 
+			   System.out.println(res.remove(0));
+			   System.out.println(res);
+			   break;
+			   
+		   case 5: 
+			   System.out.println(res.set(2, 100));
+			   System.out.println(res);
+			   break;
+		   
+		   case 6: 
+			   System.out.println("Exiting...");
+				   System.exit(0);
+			 
+		   } 
+		 }	
+	}
+}
