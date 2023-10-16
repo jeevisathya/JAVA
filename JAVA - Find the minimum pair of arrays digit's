@@ -1,0 +1,78 @@
+I/O
+
+Please enter the testcases num1:
+2
+Please enter the value of num:
+5
+2 4 5 7 9
+1
+Please enter the value of num:
+10
+87 32 99 75 56 43 21 10 68 49
+6
+
+package TestProject;
+import java.util.Scanner;
+public class Testdatas {
+
+	public static void main(String[] args) {
+		System.out.println("Please enter the testcases num1:");
+		Scanner sc= new Scanner(System.in);
+	    int num1 = sc.nextInt();
+	   
+	    int arr[] = new int[100];
+	    int a1[] = new int[100];
+	    int a2[] = new int[100];
+	    int res[] = new int[150];
+	    for(int k=0; k<num1; k++) {
+	    	 int t,k1=0,k2=0,k3=0;
+	    	 System.out.println("Please enter the value of num:");
+	    	 int num = sc.nextInt();
+	    	 for(int i=0; i<num; i++) {
+	 	    	arr[i] = sc.nextInt();
+	 	    }
+	    	for(int i=0; i<num; i++) {
+	    		for(int j=i+1; j<num; j++) {
+	    			if(arr[i] > arr[j]) {
+	    				t=arr[i];
+	    				arr[i]=arr[j];
+	    				arr[j]=t;
+	    			}
+	    		}
+	    	}
+	    	for(int i=0; i<num; i++) {
+	    		if(i%2==0) {
+	    			a1[k2] = arr[i];
+	    			k2++;
+	    		}
+	    		else {
+	    			a2[k3] = arr[i];
+	    			k3++;
+	    		}	
+	    	}
+	    	/**
+	    	for(int i=0; i<k2; i++) {
+	    		System.out.println(a1[i]);
+	    	}
+	    	for(int i=0; i<k3; i++) {
+	    		System.out.println(a2[i]);
+	    	}
+	    	**/
+	    	
+	    	for(int i=0; i<k2; i++) {
+	    		for(int j=0; j<k3; j++) {
+	    			res[k1] = Math.abs(a1[i]-a2[j]);
+	    			k1++;
+	    		}	
+	    	}
+	    
+	    	int test = res[0];
+	        for(int i=0; i<k1; i++) {
+	        	if(test > res[i]) {
+	        		test = res[i];
+	        	}
+	        }
+	        System.out.println(test);
+	    }
+	    }
+}
