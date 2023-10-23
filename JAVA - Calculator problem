@@ -1,0 +1,89 @@
+package TestProject;
+import java.util.Scanner;
+
+    public class Calculatorpgm
+    { 
+    	public int add(int x, int z) {
+            int res = x + z;
+            return res;
+          }
+
+        public int sub(int x, int z) {
+            int res = x - z;
+            return res;
+          }
+
+        public int mul(int x, int z) {
+            int res = x * z;
+            return res;
+          }
+
+        public int div(int x, int z) {
+            int res = x + z;
+            return res;
+          }  
+        
+	 static void perform(int x) {
+		  System.out.println("+, -, *, /");
+		  Scanner sc = new Scanner(System.in);
+		  String y = sc.nextLine();
+		  System.out.println("Please enter a value to proceed:");
+		  int z = sc.nextInt();
+		  if( y.equals("+")) {
+			  Calculatorpgm obj = new Calculatorpgm();
+			   System.out.println(obj.add(x,z)); 
+		  }else if (y.equals("-")) {
+			  Calculatorpgm obj = new Calculatorpgm();
+			   System.out.println(obj.sub(x,z)); 
+		  }else if (y.equals("*")) {
+			  Calculatorpgm obj = new Calculatorpgm();
+			   System.out.println(obj.mul(x,z)); 
+		  }else if(y.equals("/")) {
+			  Calculatorpgm obj = new Calculatorpgm();
+			  System.out.println(obj.div(x,z)); 
+		  }
+	 }
+	 
+	 static void calculator() 
+		{
+			System.out.println("Please enter the value of x:");
+			 Scanner sc = new Scanner(System.in);
+			    int x = sc.nextInt();
+		        perform(x);
+		}
+	public static void main(String[] args) {
+		System.out.println("Welcome");
+        while(true) {
+        	Scanner sc = new Scanner(System.in);
+        	System.out.println("Press 1: \nPress 2:\n");
+        	int a = sc.nextInt();
+        	if(a==1)
+        		calculator();
+        	else {
+        		System.out.println("Thanks");
+              System.exit(0);
+        	}
+        }
+	}
+	}
+
+
+I/O:
+
+Welcome
+Press 1: 
+Press 2:
+
+1
+Please enter the value of x:
+5
++, -, *, /
++
+Please enter a value to proceed:
+6
+11
+Press 1: 
+Press 2:
+
+2
+Thanks
