@@ -1,0 +1,50 @@
+Main class
+
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+                SpringApplication.run(CollectionsApplication.class, args);
+                Interfaceexample a = new Interfaceexampleimpl();
+		a.printex("Java");
+}
+}
+
+Interface file: 
+
+Interfaceexample
+
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+
+@SpringBootApplication
+public interface Interfaceexample {
+	
+	void printex(String name);	
+}
+
+Interfaceexampleimpl
+
+package com.example.demo;
+import org.springframework.stereotype.Component;
+
+public class Interfaceexampleimpl implements Interfaceexample{
+
+	@Override
+	public void printex(String name) {
+        System.out.println("Hii" +name);		
+	}
+}
+
+O/P: Hii Java
