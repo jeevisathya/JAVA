@@ -1,0 +1,134 @@
+Annotations - @Autowired
+
+Main class:
+
+package com.example.demo;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CollectionsApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CollectionsApplication.class, args);
+		ClassAA obj1 = new ClassAA();
+		obj1.mainmethod();
+	}
+}
+
+ClassAA
+
+
+package com.example.demo;
+import org.springframework.beans.factory.annotation.Autowired;
+public class ClassAA {
+	    @Autowired
+		ClassBB obj;
+
+		public void mainmethod() {
+			System.out.println("yes");
+			obj.secondmethod();	
+		}
+}
+
+
+ClassBB
+
+package com.example.demo;
+import org.springframework.stereotype.Component;
+@Component
+public class ClassBB {
+	public void secondmethod() {
+		System.out.println("Completed");
+	}
+
+}
+
+O/P: yes
+     Completed
+
+Annotations - @Component
+
+Main class :
+
+package com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplicatn;
+import org.springframework.context.ConfigurableApplicationContext;
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Iterator;
+
+@SpringBootApplication
+public class DemoApplication {
+
+	public static void main(String[] args) {
+		
+		ConfigurableApplicationContext a = SpringApplication.run(DemoApplication.class, args);
+		//System.out.println("Spring");
+		
+		Interfaceexampleimpl obj = a.getBean(Interfaceexampleimpl.class); // Converting classes into Bean
+		obj.setname("Kelvin");
+		obj.setcourse("JAVA");
+		System.out.println(obj.getcourse());
+		System.out.println(obj.getname());
+			
+	}  
+}
+
+Interfaceexampleimpl:
+
+
+package com.example.demo;
+import org.springframework.stereotype.Component;
+@Component
+public class Interfaceexampleimpl {
+	public String name;
+	public String course;
+	
+	public String getname() {
+		return name;
+	}
+	public String getcourse() {
+		return course;
+	}
+	public void setname(String name) {
+		this.name = name;
+	}
+	public void setcourse(String course) {
+		this.course = course;
+	}
+}
+
+O/P: JAVA
+     Kelvin
+
+
+Mappings:
+
+package com.example.demo;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class Examplecontroller {
+	    @GetMapping("/greet")
+	    public String greet(@RequestParam(name = "name", defaultValue = "Guest") String name) {
+	        return "Hello, " + name + "!";
+	    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
