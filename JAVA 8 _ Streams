@@ -1,0 +1,505 @@
+import java.util.function.Consumer;
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.Optional;
+import java.util.stream.Stream;
+
+public class MyClass {
+  public static void main(String args[]) {
+     
+     //Filter
+
+     List<String> str = Arrays.asList("Apple", "Orange", "Grapes");
+     List<String> ans = str.stream().filter(i->i == "Orange").collect(Collectors.toList());
+     System.out.println(ans);
+     
+     //Map
+     
+     List<String> str = Arrays.asList("Apple", "Orange", "Grapes");
+     List<String> ans = str.stream().map(String :: toLowerCase).collect(Collectors.toList());
+     System.out.println(ans);
+     
+     //forEach
+     
+      List<String> str = Arrays.asList("Apple", "Orange", "Grapes");
+      str.stream().forEach(i-> System.out.println(i));
+      
+     //distinct
+
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Orange");
+    List<String> ans = str.stream().distinct().collect(Collectors.toList());
+    System.out.println(ans);
+
+    // flatmap
+      
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes");
+    List<String> str1 = Arrays.asList("Cherry");
+   
+    Stream<List<String>> s = Stream.of(str,str1);
+    Stream<String> ans = s.flatMap(List :: stream);
+    ans.forEach(System.out::println);
+
+   //limit
+   
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Orange");
+    List<String> ans = str.stream().limit(2).collect(Collectors.toList());
+    System.out.println(ans);
+    
+    //Sorted
+    
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Orange");
+    List<String> ans = str.stream().sorted().collect(Collectors.toList());
+    System.out.println(ans);
+	
+	 List<String> list = Arrays.asList("Java", "Spring", "Microservices", "Threads");
+
+        // Printing elements using enhanced for loop
+        for (String item : list) {
+            System.out.println(item);
+        
+    //Skip
+       
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Orange");
+    List<String> ans = str.stream().skip(3).collect(Collectors.toList());
+    System.out.println(ans);
+
+    //collect with Set
+    
+    List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Orange");
+    Set<String> ans = str.stream().collect(Collectors.toSet());
+    System.out.println(ans);
+	
+	//Remove duplicates with Set
+	
+	List<Integer> numbers = Arrays.asList(10, 20, 30, 20, 10, 40);
+
+   Set<Integer> uniqueNumbers = new HashSet<>(numbers);
+   System.out.println("Unique Numbers: " + uniqueNumbers);
+
+    //reduce
+     
+    List<Integer> str = Arrays.asList(1,2,4,5,6);
+    Optional<Integer> ans = str.stream().reduce((a,b) -> a*b);
+    System.out.println(ans);
+
+    //allMatch/anyMatch/noneMatch
+    
+    List<Integer> str = Arrays.asList(1,2,4,5,6);
+    boolean  ans = str.stream().anyMatch(i-> i>2);
+    System.out.println(ans);
+
+    //findfirst
+    
+     List<String> str = Arrays.asList("Apple", "Orange", "Cherry");
+     Optional<String> ans = str.stream().filter(i-> i.startsWith("C")).findFirst();
+     System.out.println(ans);
+        
+    
+        List<Integer> str = Arrays.asList(1,2,4,5,6);
+        Optional<Integer> ans = str.stream().filter(i-> i%2==0).findFirst();
+        System.out.println(ans);   
+
+             
+    //findAny
+      
+      List<String> str = Arrays.asList("Apple", "Orange", "Cherry");
+      Optional<String> ans = str.stream().filter(i-> i.startsWith("C")).findAny();
+      System.out.println(ans);  
+
+         
+    //max/min
+        
+        List<Integer> str = Arrays.asList(1,2,4,5,6);
+        Optional<Integer>  ans = str.stream().max(Integer :: compareTo);
+        System.out.println(ans);   
+
+    //toArray
+    
+      List<String> str = Arrays.asList("Apple", "Orange", "Cherry");
+      String[] ans = str.stream().toArray(String[] :: new);
+      System.out.println(ans);
+
+    //Counting
+      
+       List<String> str = Arrays.asList("Apple", "Orange", "Cherry", "Apple", "Cherry");
+       Map<String, Long> ans = str.stream().collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+       System.out.println(ans);
+       
+     //GroipingBy
+       
+       Map<String, List<Employee>> emp = stre.stream().collect(Collectors.groupingBy(i -> i.age));
+       System.out.println(ans);
+
+     //count
+    
+      List<String> str = Arrays.asList("Apple", "Orange", "Cherry");
+      long ans = str.stream().count();
+      System.out.println(ans);
+
+     //joining
+     
+        List<String> str = Arrays.asList("Apple", "Orange", "Cherry", "Apple", "Cherry");
+        String ans = str.stream().collect(Collectors.joining(",", "[","]"));
+        System.out.println(ans);
+    
+    //reducing
+  
+        List<String> str = Arrays.asList("Apple", "Orange", "Cherry", "Apple", "Cherry");
+        String ans = str.stream().collect(Collectors.reducing("", (a,b) -> a + " "+b));
+        System.out.println(ans);
+	   
+	// Collections.frequency
+
+	     List<String> ans=  str.stream().filter(i-> Collections.frequency(str,i)>1).collect(Collectors.toList());
+       System.out.println(ans);
+  }
+}
+
+ // Predicate
+	
+import java.util.*;
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.lang.*;
+import java.io.*;
+import java.util.Map;
+import java.util.function.Predicate;
+
+public class MyClass {
+      public static void main(String args[]) {
+          
+         List<Integer> salary = Arrays.asList(30000, 20000, 100000, 40000, 50000);
+         Predicate<Integer> ans = Salary -> Salary>=30000;
+         List<Integer>  ans1 = salary.stream().filter(ans).collect(Collectors.toList());
+         System.out.println(ans1);
+       
+  }
+}
+
+Print count of the each characters:
+
+import java.util.*;
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.lang.*;
+import java.io.*; 
+
+public class MyClass {
+  public static void main(String args[]) {
+       String str = "Jeevitha";
+       
+       Map<Character, Long> ans = str.chars().mapToObj(i -> (char) i).collect(Collectors.groupingBy(i-> i, Collectors.counting()));  // Converting IntStream into Character
+       System.out.println(ans);
+  }
+}
+
+Print the count of each numbers:
+
+import java.util.*;
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.lang.*;
+import java.io.*; 
+
+public class MyClass {
+  public static void main(String args[]) {
+         List<Integer> numbers = Arrays.asList(0,2,2,8,0,5,6,7,5);
+         Map<Integer, Long> ans = numbers.stream().collect(Collectors.groupingBy(i->i,Collectors.counting()));
+         System.out.println(ans);
+  }
+}
+
+
+Length of each word:
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Map;
+import java.lang.*;
+
+public class MyClass {
+  public static void main(String args[]) {
+       List<String> str = Arrays.asList("Apple", "Orange", "grapes", "Guva", "Cherry");
+       
+       str.stream().sorted().forEach(i -> System.out.println("Name: "+ i + " len: " + i.length()));
+      
+  }
+}
+
+Sort the word based on their length:
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+
+public class MyClass {
+    public static void main(String[] args) {
+        List<String> str = Arrays.asList("Apple", "Orange", "Grapes", "Guava", "Cherry");
+
+        // Sorting based on length and then collecting to a list
+        List<String> sortedList = str.stream()
+                                     .sorted((s1, s2) -> Integer.compare(s1.length(), s2.length()))   // Sort the length for ascending
+                                     .collect(Collectors.toList());
+									 
+									 .sorted(s1,s2) ->integer.compare(s2.length(),s1.length())  // sort the length for descending
+
+        sortedList.forEach(word -> System.out.println("Name: " + word + ", Length: " + word.length()));
+    }
+}
+
+Another method: (without reversed() default sorting - Ascending)
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.Comparator;
+
+public class MyClass {
+    public static void main(String[] args) {
+        List<String> str = Arrays.asList("kim", "a", "Hiii");
+        List<String> res = str.stream().sorted(Comparator.comparingInt(String::length).reversed()).collect(Collectors.toList());
+    
+        res.forEach(i -> System.out.println("Words: "+ i +"Length: "+  i.length()));
+    }
+}
+
+Print Each word length and it's occurence:
+
+import java.util.*;
+import java.util.List;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.lang.*;
+import java.io.*;
+import java.util.Map;
+
+public class MyClass {
+  public static void main(String args[]) {
+     List<String> str = Arrays.asList("Apple", "Cherry", "Guva", "aaaa");
+     Map<Integer, Long> ans = str.stream().collect(Collectors.groupingBy(String::length,Collectors.counting()));
+     System.out.println(ans);
+  }
+}
+
+Output: 4=2, 5=1,6=1
+
+Non-repeated Characters:
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class NonRepeatedChar
+{
+    public static void main(String[] args)
+    {
+        String str = "Jeevitha";
+        List<Character> answer = str.chars()
+        .mapToObj(i -> (char) i).collect(Collectors.groupingBy(Function.identity(),
+        LinkedHashMap::new, Collectors.counting()))
+        .entrySet().stream().filter(e -> e.getValue() == 1).map(Map.Entry::getKey)
+        .collect(Collectors.toList());
+
+        System.out.println(answer);
+    }
+}
+
+2nd - repeated characters:
+
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+public class NonRepeatedChar
+{
+    public static void main(String[] args)
+    {
+        String str = "streamsample";
+        Optional<Character> answer = str.chars()
+        .mapToObj(i -> (char) i).collect(Collectors.groupingBy(Function.identity(),
+        LinkedHashMap::new, Collectors.counting()))
+        .entrySet().stream().filter(e -> e.getValue()>1).map(Map.Entry::getKey).skip(1).findFirst();
+        
+        answer.ifPresentOrElse(i -> System.out.println(i), () -> System.out.println("No such value is repeated"));
+    }
+}
+
+Find the 5th data in the sorted data:
+
+Optional is used to hold only one data, rather than you want to declare many values then convert into List and use collect
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+
+public class MyClass {
+    public static void main(String[] args) {
+        List<Integer> nums = Arrays.asList(100,23,500,1000,300,450,560,430,23);
+        
+        Optional<Integer> ans = nums.stream().distinct().sorted().skip(4).findFirst();
+        if(ans.isPresent()){
+             System.out.println(ans);
+        }else{
+             System.out.println("There is no such value");
+        }
+    }
+}
+
+sort the character based on their length:
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+public class MyClass {
+    public static void main(String[] args) {
+        String str = "tree";
+        Map<Character, Long> ans = str.chars().mapToObj(i -> (char) i). collect(Collectors.groupingBy(i -> i, Collectors.counting()));
+        
+        
+        List<Map.Entry<Character,Long>> entrylist  = new ArrayList<>(ans.entrySet());
+        Collections.sort(entrylist, (a,b) -> Long.compare(b.getValue(), a.getValue()));
+        
+        StringBuilder result = new StringBuilder();
+        for(Map.Entry<Character,Long> entry : entrylist){
+            for(int i=0; i<entry.getValue(); i++){
+                result.append(entry.getKey());
+            }
+        }
+        
+        System.out.println(result);
+    } 
+}
+output: eetr
+
+In Streams : COmparator.comparing() -> Which is used to sort the obj values
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class MyClass {
+    
+    private int salary;
+    private String name;
+    
+    MyClass(String name, int salary){
+        this.name=name;
+        this.salary=salary;
+    }
+    
+    public String toString(){
+        return "name: "+ name +"salary: "+ salary;
+    }
+    
+    public static void main(String[] args) {
+        
+        List<MyClass> obj = new ArrayList<>();
+        obj.add(new MyClass("JOhn", 20000));
+        obj.add(new MyClass("Kim", 30000));
+        obj.add(new MyClass("JErry", 40000));
+        
+        Collections.sort(obj, Comparator.comparing((MyClass i) -> i.salary).reversed());
+        System.out.println("Highest salary:" + obj.get(0));
+        
+        
+        // for(MyClass ans : obj){
+        //     System.out.println("Highest salary:" + ans.salary);
+        // }
+    }   
+}
+
+Comparator: naturalOrder/reverseOrder:
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+
+
+public class MyClass {
+    public static void main(String[] args) {
+
+       List<Integer> nums = List.of(12,45,33,90,8);
+      List<Integer> ans = nums.stream().sorted(Comparator.naturalOrder()).collect(Collectors.toList());
+       
+       List<Integer> ans = nums.stream().sorted(Comparator.reverseOrder()).collect(Collectors.toList());
+       System.out.println(ans);
+       System.out.println(nums);
+
+    }
+}
+
+sort the age alone in MAP:
+
+import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Arrays;
+import java.util.Optional;
+import java.util.function.Function;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.*;
+
+public class MyClass {
+    public static void main(String[] args) {
+
+       Map<String,Integer> ans = new HashMap<>();
+       ans.put("John", 21);
+       ans.put("Kim", 32);
+       ans.put("Jerry", 29);
+       ans.put("Raj", 19);
+    
+       List<Map.Entry<String,Integer>> sort = new ArrayList<>(ans.entrySet());
+       
+       Collections.sort(sort, Comparator.comparing(Map.Entry<String,Integer>::getValue).reversed());
+       for(Map.Entry<String,Integer> sortedvalue : sort){
+           System.out.println(sortedvalue.getKey() + " = " + sortedvalue.getValue());
+       }
+    }
+}
