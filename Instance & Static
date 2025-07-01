@@ -1,0 +1,119 @@
+Static Variable:
+
+class Counter{  
+    static int count=0;//will get memory only once and retains its value  
+  
+    Counter(){  
+        count++;//incrementing value of static variable 
+        System.out.println(count);  
+    }  
+}
+public class Main{
+    public static void main(String args[]){  
+        //Creating objects  
+        Counter c1=new Counter();  
+        Counter c2=new Counter();  
+        Counter c3=new Counter();  
+    }  
+} 
+
+ouput: 
+1
+2
+3
+
+Instance variable:
+
+class Counter{  
+    int count=0;  
+  
+    Counter(){  
+        count++;//incrementing value of static variable 
+        System.out.println(count);  
+    }  
+}
+public class Main{
+    public static void main(String args[]){  
+        //Creating objects  
+        Counter c1=new Counter();  
+        Counter c2=new Counter();  
+        Counter c3=new Counter();  
+    }  
+} 
+
+Ouput:
+1
+1
+1
+
+Static Methods:
+
+// When you will have both class/methods are in static 
+
+public class Outer {
+   static String name= "Hello";
+   static class NestedDemo {
+      public static void print() {
+         System.out.println(name);
+      }
+   }
+   
+   public static void main(String args[]) {
+      NestedDemo.print();  --> Logic for static method calling
+   }
+}
+
+import java.io.*;
+
+public class Mymethod{
+    static int value =10; --> Global variable
+     
+    static void method(){
+         int a=10;
+         int b=20;    --> Local variable
+         int answer = a+b+value;
+         System.out.println(answer);
+     }
+    public static void main(String[] args)
+    {
+        Mymethod.method();
+    }
+}
+
+Difference b/w: Variable accepting in static/instance variable:
+
+public class MyClass {
+    static int x = 10;
+  public static void main(String args[]) { // Here static is also a method
+
+    System.out.println(x);   // Answer is 10
+  }
+}
+
+
+public class MyClass {
+    int x = 10;
+  public static void main(String args[]) {
+
+    System.out.println(x);    // Error
+  }
+}
+
+Instance variable requires object calling like, 
+MyClass obj = new MyClass();
+obj.x;
+
+
+class MyClass {
+    int x = 10; // Stored in Heap Memory
+}
+
+This stores in stack memory which is local variable
+public static void main(String args[]) {
+    int y = 20; // Stored in Stack Memory
+}
+
+This stores in method area which is declared in static(Global)
+class MyClass {
+    static int z = 30; // Stored in Method Area
+}
