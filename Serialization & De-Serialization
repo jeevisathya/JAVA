@@ -1,0 +1,43 @@
+Serialization/De-Serialization:
+
+objectOutputStream - Is use to write the object
+Serialization - object into stream
+Deserialization - stream into object
+
+Class Employee implements Serializable{
+    int id;
+    String name;
+    
+    public Employee(int id, String name){
+        this.id =id;
+        this.name=name;
+    }
+}
+public class MyClass {
+  public static void main(String args[]) {
+      
+      Employee s = new Employee(121, "Kim");
+      objectOutputStream oos = new objectOutputStream(new FileOutputStream("example.txt"));
+      oos.writeObject(s);
+      System.out.println(oos);
+  }
+}
+
+Class Employee implements Serializable{
+    int id;
+    String name;
+    
+    public Employee(int id, String name){
+        this.id =id;
+        this.name=name;
+    }
+}
+public class MyClass {
+  public static void main(String args[]) {
+      
+      Employee s = new Employee(121, "Kim");
+      objectOutputStream oos = new objectOutputStream(new FileOutputStream("example.txt"));
+      Employee s = (Employee) oos.readObject();
+      System.out.println("id: "+ s.id ,"name: "+ s.name);
+  }
+}
