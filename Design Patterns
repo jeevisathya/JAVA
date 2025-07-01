@@ -1,0 +1,74 @@
+//singleton class
+
+public class Singleton {
+
+    private static Singleton singleton;
+
+    private Singleton(){
+
+    }
+    public static Singleton getmessage(){
+        if(singleton == null){
+            return singleton = new Singleton();
+        }
+        return singleton;
+    }
+
+    public void displaymessage(){
+        System.out.print("Working model of singleton pattern");
+    }
+}
+
+public class Main {
+    public static void main(String[] args){
+
+        //Singleton Pattern
+        Singleton s1 = Singleton.getmessage();
+        Singleton s2 = Singleton.getmessage();
+        s1.displaymessage();
+        s2.displaymessage();
+    }
+}
+
+Factory Pattern:
+
+interface Payment{
+    
+    public void paymentprocess();
+}
+
+class Airtelbill implements Payment{
+    
+    public void paymentprocess(){
+        System.out.println("Airtelbill");
+    }
+}
+
+class wifibill implements Payment{
+    
+    public void paymentprocess(){
+        System.out.println("Wifibill");
+    }
+}
+
+class Client{
+    
+    public static void main(String args[]) {
+    
+    //Payment p = new Airtelbill(); --> directly creating the object 
+    Factorypattern fp = new Factorypattern();
+    Payment p = fp.createpaymentdetails("Airtelbill")  // Client class doesn't know the inter functionality of factorypattern
+    p.paymentprocess();
+    System.out.println(p);
+}
+}
+
+class Factorypattern{
+    public Payment createpaymentbill(String str){  // usage of payment here we're using object reference of payment 
+        if(str == "Airtelbill"){
+            return new Airtelbill(); 
+        }else if(str == "Wifibill"){
+            return  new wifibill();
+        }
+    }
+}
