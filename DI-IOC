@@ -1,0 +1,18 @@
+
+Dependency Injection:
+
+ public class Controller{
+        
+        @Autowired
+        private Myclass myclass;
+        
+        public void handlemessage(){   // Loosely coupled 
+            myclass.displaymessage();
+        }
+    }
+  
+  public class MyClass {
+   public void displaymessage(){
+       System.out.println("Learning of Dependency injection");
+   }
+}
